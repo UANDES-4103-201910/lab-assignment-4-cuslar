@@ -1,10 +1,10 @@
 class Event < ApplicationRecord
   belongs_to :event_venue
   has_many :ticket_types
-  validate :start_date_cannot_be_in_the_past
+  validate :start_date_cant_be_in_the_past
   validate :cannot_be_same_date
 
-  def start_date_cannot_be_in_the_past
+  def start_date_cant_be_in_the_past
 
     if start_date < Date.today
       errors.add(:start_date, "can't be in the past")
